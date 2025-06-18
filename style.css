@@ -27,7 +27,7 @@ input, textarea {
 }
 
 button {
-  padding: 10px;
+  padding: 15px;
   font-size: 16px;
   background-color: #007bff;
   border: none;
@@ -43,7 +43,7 @@ button:hover {
 .todo-list {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .todo-item {
@@ -51,9 +51,9 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   background: #e9ecef;
-  padding: 10px;
+  padding: 20px;
   border-radius: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .todo-title.done {
@@ -69,3 +69,16 @@ button:hover {
 .actions i:hover {
   color: #007bff;
 }
+
+.check {
+  color: green;
+}
+
+.edit {
+  color: orange;
+}
+
+.delete {
+  color: red;
+}
+
