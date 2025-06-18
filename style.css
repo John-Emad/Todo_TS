@@ -69,3 +69,16 @@ button:hover {
 .actions i:hover {
   color: #007bff;
 }
+
+.check {
+  color: green;
+}
+
+.edit {
+  color: orange;
+}
+
+.delete {
+  color: red;
+}
+

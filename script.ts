@@ -34,8 +34,7 @@ function saveTodos() {
 // Render todo items to UI
 function renderTodos() {
   list.innerHTML = '';
-  todos.forEach(
-    todo => {
+  todos.forEach(todo => {
     const li = document.createElement('li');
     li.className = 'todo-item';
 
@@ -45,26 +44,35 @@ function renderTodos() {
 
     const actions = document.createElement('div');
     actions.className = 'actions';
-actions.innerHTML = `
-  <i class="fa-solid fa-check check" style="color: green;"></i>
-  <i class="fa-solid fa-pen-to-square edit" style="color: orange;""></i>
-  <i class="fa-solid fa-trash delete" style="color: red;""></i>
-`;
 
-    actions.querySelector('.check')?.addEventListener('click', () => {
+    // Create action icons
+    const checkIcon = document.createElement('i');
+    checkIcon.className = 'fa-solid fa-check check';
+    actions.appendChild(checkIcon);
+
+    const editIcon = document.createElement('i');
+    editIcon.className = 'fa-solid fa-pen-to-square edit';
+    actions.appendChild(editIcon);
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.className = 'fa-solid fa-trash delete';
+    actions.appendChild(deleteIcon);
+
+    // Add event listeners
+    checkIcon.addEventListener('click', () => {
       todo.done = !todo.done;
       saveTodos();
       renderTodos();
     });
 
-    actions.querySelector('.edit')?.addEventListener('click', () => {
+    editIcon.addEventListener('click', () => {
       titleInput.value = todo.title;
       descriptionInput.value = todo.description;
       editingId = todo.id;
       actionButton.textContent = "Update Todo";
     });
 
-    actions.querySelector('.delete')?.addEventListener('click', () => {
+    deleteIcon.addEventListener('click', () => {
       todos = todos.filter(t => t.id !== todo.id);
       saveTodos();
       renderTodos();
@@ -75,6 +83,7 @@ actions.innerHTML = `
     list.appendChild(li);
   });
 }
+
 
 actionButton.addEventListener('click', () => {
   const title = titleInput.value.trim();
